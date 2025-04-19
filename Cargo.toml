@@ -1,39 +1,7 @@
-[package]
-name = "sumcheck-on-g"
-version = "0.1.0"
-edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-ark-ff = "0.4.2"
-ark-poly = "0.4.2"
-ark-ec = "0.4.2"
-ark-serialize = "0.4.2"
-ark-std = "0.4.0"
-rayon = "1.7.0"
-ark-bls12-381 = "0.4.0"
-displaydoc = "0.2.4"
-ark-test-curves = { version ="0.4.2", default-features = false, features = ["secp256k1"] }
-
-# import for poly_iop & transcript
-subroutines = {git="https://github.com/EspressoSystems/hyperplonk"}
-transcript = {git="https://github.com/EspressoSystems/hyperplonk"}
-my_poly = {git="https://github.com/FranklinZty/my-poly"}
-rand = "0.8.5"
-
-[features]
-# default = [ "parallel", "print-trace" ]
-default = ["parallel"]
-# extensive sanity checks that are useful for debugging
-extensive_sanity_checks = [ ]
-
-parallel = [ 
-    "ark-std/parallel", 
-    "ark-ff/parallel",  
-    "ark-ec/parallel",
-    "ark-poly/parallel", 
-    ]
-print-trace = [ 
-    "ark-std/print-trace",
-    ] 
+[workspace]
+resolver = "2"
+members = [
+    "polynomial",
+    "sigma",
+    "sumcheck",
+]
